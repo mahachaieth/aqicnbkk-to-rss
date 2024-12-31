@@ -1,9 +1,9 @@
 import requests
 from xml.etree.ElementTree import Element, SubElement, tostring
 
-API_TOKEN = 'your_api_token'
-CITY = 'your_city'
-API_URL = f'https://api.waqi.info/feed/{CITY}/?token={API_TOKEN}'
+API_TOKEN = '2eecaa88245d98799539f4fc4ac83148e7925fce'
+CITY = '@5773'
+API_URL = f'https://api.waqi.info/feed/@5773/?token=2eecaa88245d98799539f4fc4ac83148e7925fce'
 
 def generate_rss_feed():
     # Fetch AQICN data
