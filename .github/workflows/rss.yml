@@ -1,0 +1,26 @@
+name: Update RSS Feed
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch:
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    - name: Install Dependencies
+      run: pip install requests
+    - name: Generate RSS Feed
+      run: python rss_feed.py
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
